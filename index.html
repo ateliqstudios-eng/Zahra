@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Zahra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#180d14;--bg2:#3b1a2b;--ink:#fbeef0;--soft:#d9b8c1;--rose:#ef9db0;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){--bg:#fff3f0;--bg2:#f9d9df;--ink:#4b2632;--soft:#84586a;--rose:#c95d78;}
+}
+:root[data-theme="light"]{--bg:#fff3f0;--bg2:#f9d9df;--ink:#4b2632;--soft:#84586a;--rose:#c95d78;}
+:root[data-theme="dark"]{--bg:#180d14;--bg2:#3b1a2b;--ink:#fbeef0;--soft:#d9b8c1;--rose:#ef9db0;}
+*{box-sizing:border-box;margin:0}
+body{background:radial-gradient(ellipse at 50% 25%,var(--bg2),var(--bg) 75%) fixed;color:var(--ink);font-family:'Nunito',system-ui,sans-serif;overflow-x:hidden;min-height:100vh}
+.stage{min-height:100vh;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem 1.25rem;position:relative;z-index:1}
+.stage.on{display:flex;animation:fadein 1.2s ease both}
+@keyframes fadein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(1.9rem,7.5vw,3.2rem);line-height:1.25}
+h1 em{color:var(--rose)}
+.tiny{color:var(--soft);font-size:.95rem;margin-top:1.2rem;letter-spacing:.05em}
+.pulse{animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* bouquet */
+.bq{background:none;border:0;cursor:pointer;width:min(78vw,320px);margin-top:1rem;-webkit-tap-highlight-color:transparent;transition:transform .4s}
+.bq:hover{transform:scale(1.03)}
+.bq svg{width:100%;height:auto;overflow:visible;transform-origin:50% 95%;animation:sway 5s ease-in-out infinite;filter:drop-shadow(0 22px 22px rgba(0,0,0,.35))}
+@keyframes sway{50%{transform:rotate(1.6deg)}}
+.bq.pop{animation:pop 1.1s ease forwards}
+@keyframes pop{35%{transform:scale(1.14) rotate(-2deg)}100%{transform:scale(1.45);opacity:0}}
+
+/* envelope */
+.env{position:relative;width:min(84vw,340px);height:min(56vw,226px);border:0;border-radius:6px;cursor:pointer;margin-top:1.6rem;background:linear-gradient(160deg,#f5cdd3,#e2a0ae);box-shadow:0 26px 40px -14px rgba(0,0,0,.55),inset 0 0 0 1px rgba(255,255,255,.25);transition:opacity .7s,transform .7s;-webkit-tap-highlight-color:transparent}
+.env .front{position:absolute;inset:0;border-radius:6px;background:linear-gradient(200deg,#f8d6db,#e9aab6);clip-path:polygon(0 100%,0 0,50% 56%,100% 0,100% 100%);filter:drop-shadow(0 -2px 3px rgba(120,30,60,.25))}
+.env .flap{position:absolute;top:0;left:0;width:100%;height:58%;background:linear-gradient(180deg,#e59eae,#f3c3cc);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s ease}
+.env.open .flap{transform:rotateX(180deg)}
+.seal{position:absolute;left:50%;top:50%;width:54px;height:54px;transform:translate(-50%,-50%);z-index:2;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e0546f,#a3213f 70%);box-shadow:0 4px 8px rgba(0,0,0,.4),inset 0 -3px 5px rgba(60,0,15,.5),inset 0 2px 3px rgba(255,180,190,.5);display:flex;align-items:center;justify-content:center}
+.seal svg{width:24px;height:24px;filter:drop-shadow(0 -1px 0 rgba(255,170,180,.5))}
+.env.open .seal{display:none}
+.env.gone{opacity:0;transform:translateY(40px) scale(.92)}
+
+/* letter */
+.paper{background:linear-gradient(90deg,transparent 3.3rem,rgba(200,70,90,.28) 3.3rem 3.36rem,transparent 3.36rem),repeating-linear-gradient(#fffaf1 0 2.05rem,rgba(120,150,190,.18) 2.05rem 2.1rem);background-color:#fffaf1;color:#3f2530;max-width:34rem;width:100%;border-radius:4px;padding:2.2rem 1.6rem 1.6rem 4.2rem;box-shadow:0 30px 55px -16px rgba(0,0,0,.55),inset 0 0 40px rgba(180,140,100,.12);text-align:left;font-family:'Caveat',cursive;font-size:clamp(1.4rem,4.8vw,1.75rem);line-height:2.05rem;transform:rotate(-.5deg)}
+.paper p{margin-bottom:2.05rem;opacity:0;animation:fadein 1s ease forwards}
+.paper p:nth-child(1){animation-delay:.2s}.paper p:nth-child(2){animation-delay:1.4s}.paper p:nth-child(3){animation-delay:3s}.paper p:nth-child(4){animation-delay:5s}.paper p:nth-child(5){animation-delay:6.8s}.paper p:nth-child(6){animation-delay:8.4s}.paper p:nth-child(7){animation-delay:9.6s}
+.paper .sig{font-size:2.1rem;color:#a8324f;margin-bottom:0}
+.ask{margin-top:2.2rem;max-width:34rem;opacity:0;animation:fadein 1s ease 10.8s forwards}
+.ask h2{font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:1.6rem;margin-bottom:1.2rem}
+.btns{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center}
+.b{font:inherit;font-weight:600;cursor:pointer;border-radius:999px;padding:.9rem 1.6rem;border:1.5px solid var(--rose);background:transparent;color:var(--ink);text-decoration:none;display:inline-block;transition:.3s}
+.b.main{background:var(--rose);color:#2b1220}
+.b:hover{transform:translateY(-2px);box-shadow:0 10px 26px -10px var(--rose)}
+.reply{max-width:32rem;margin-top:1.8rem;display:none}
+.reply.on{display:block;animation:fadein 1s ease both}
+.reply p{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:1.3rem;line-height:1.65;margin-bottom:1.5rem}
+.reply .alt{display:block;margin-top:1rem;font-size:.85rem;color:var(--soft)}
+
+/* petals */
+.petal{position:fixed;top:-2rem;z-index:0;pointer-events:none;background:linear-gradient(135deg,#f8b5c4,#d9587c);border-radius:100% 0 100% 0;opacity:.7;animation:fall linear forwards;box-shadow:inset -2px -2px 4px rgba(120,20,50,.3)}
+@keyframes fall{to{transform:translate3d(var(--dx),110vh,0) rotate(var(--r));opacity:0}}
+@media (prefers-reduced-motion:reduce){.petal,.pulse,.bq svg{animation:none}.paper p,.ask{animation:none;opacity:1}}
+</style>
+</head>
+<body>
+
+<main class="stage on" id="s1">
+  <h1>Zahra, this is for <em>you</em></h1>
+  <button class="bq" id="bq" aria-label="Tap the bouquet to open">
+    <svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="shade" cx=".4" cy=".35" r=".75">
+          <stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#46001a" stop-opacity=".45"/>
+        </radialGradient>
+        <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fbf8a"/><stop offset="1" stop-color="#3d7a53"/></linearGradient>
+        <linearGradient id="wrap" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9d3bf"/><stop offset=".5" stop-color="#faede0"/><stop offset="1" stop-color="#dcc2ab"/></linearGradient>
+        <linearGradient id="wrap2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7c9d3"/><stop offset="1" stop-color="#e59bab"/></linearGradient>
+        <g id="rose">
+          <g fill="currentColor" stroke="rgba(90,10,40,.35)" stroke-width="1">
+            <ellipse cy="-15" rx="15" ry="19"/><ellipse cy="-15" rx="15" ry="19" transform="rotate(60)"/><ellipse cy="-15" rx="15" ry="19" transform="rotate(120)"/>
+            <ellipse cy="-15" rx="15" ry="19" transform="rotate(180)"/><ellipse cy="-15" rx="15" ry="19" transform="rotate(240)"/><ellipse cy="-15" rx="15" ry="19" transform="rotate(300)"/>
+            <ellipse cy="-10" rx="11" ry="14" transform="rotate(20)"/><ellipse cy="-10" rx="11" ry="14" transform="rotate(92)"/><ellipse cy="-10" rx="11" ry="14" transform="rotate(164)"/><ellipse cy="-10" rx="11" ry="14" transform="rotate(236)"/><ellipse cy="-10" rx="11" ry="14" transform="rotate(308)"/>
+            <circle r="9"/>
+          </g>
+          <path d="M-6 -2C-6 -10 7 -10 7 -1C7 7 -4 8 -5 1" fill="none" stroke="rgba(80,0,30,.5)" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M-2 -1C-2 -4 3 -4 3 -1" fill="none" stroke="rgba(80,0,30,.5)" stroke-width="1.4" stroke-linecap="round"/>
+          <circle r="30" fill="url(#shade)"/>
+        </g>
+        <g id="lf"><path d="M0 0C12-16 36-16 48 0C36 16 12 16 0 0Z" fill="url(#leaf)" stroke="rgba(20,70,40,.4)" stroke-width="1"/><path d="M2 0L44 0" stroke="rgba(20,70,40,.45)" stroke-width="1.2"/></g>
+        <g id="bb" fill="#fffaf6"><circle r="3.6"/><circle cx="8" cy="-5" r="3"/><circle cx="-7" cy="-6" r="3.2"/><circle cx="3" cy="-11" r="2.8"/><circle cx="-4" cy="6" r="2.6"/><circle cx="9" cy="5" r="2.4"/></g>
+      </defs>
+      <g stroke="#4f8f62" stroke-width="3.5" stroke-linecap="round" fill="none">
+        <path d="M150 310C150 220 150 160 150 118"/><path d="M150 310C130 240 104 190 94 156"/><path d="M150 310C172 240 198 190 206 156"/><path d="M150 310C118 260 80 210 70 180"/><path d="M150 310C182 260 222 210 232 180"/>
+      </g>
+      <g stroke="#7fa88a" stroke-width="1.6" fill="none"><path d="M150 310C110 250 60 170 48 128"/><path d="M150 310C190 250 240 170 252 128"/><path d="M150 310C140 240 118 120 116 78"/><path d="M150 310C162 240 184 120 186 80"/></g>
+      <use href="#bb" x="48" y="122"/><use href="#bb" x="252" y="122"/><use href="#bb" x="116" y="72"/><use href="#bb" x="186" y="74"/><use href="#bb" x="30" y="170" transform="scale(.8) translate(8 42)"/><use href="#bb" x="270" y="170" transform="scale(.8) translate(60 42)"/>
+      <use href="#lf" transform="translate(150 215) rotate(-150)"/><use href="#lf" transform="translate(150 215) rotate(-30)"/>
+      <use href="#lf" transform="translate(96 190) rotate(-160) scale(.9)"/><use href="#lf" transform="translate(204 190) rotate(-20) scale(.9)"/>
+      <use href="#rose" x="70" y="180" style="color:#f5c0cc" transform="translate(-14 -10) scale(.95)"/>
+      <use href="#rose" x="232" y="180" style="color:#f7b696" transform="translate(14 -10) scale(.95)"/>
+      <use href="#rose" x="94" y="150" style="color:#ef7c9b"/>
+      <use href="#rose" x="206" y="150" style="color:#d8456c"/>
+      <use href="#rose" x="150" y="112" style="color:#c92f57" transform="translate(-45 -33) scale(1.3)"/>
+      <path d="M62 196C95 214 205 214 238 196L176 356L124 356Z" fill="url(#wrap)"/>
+      <path d="M62 196L150 240L124 356Z" fill="rgba(160,120,90,.18)"/>
+      <path d="M238 196L150 240L176 356Z" fill="rgba(255,255,255,.35)"/>
+      <path d="M62 196C95 214 205 214 238 196L226 232C190 246 110 246 74 232Z" fill="url(#wrap2)"/>
+      <path d="M74 232C110 246 190 246 226 232" fill="none" stroke="rgba(120,30,60,.3)" stroke-width="1.2"/>
+      <path d="M128 268C138 250 146 250 150 262C154 250 162 250 172 268C160 274 154 272 150 266C146 272 140 274 128 268Z" fill="#b4304f" stroke="rgba(70,0,20,.35)"/>
+      <path d="M150 264L132 300M150 264L168 300" stroke="#b4304f" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="150" cy="264" r="5.5" fill="#8f2039"/>
+    </svg>
+  </button>
+  <p class="tiny pulse">tap the bouquet</p>
+</main>
+
+<main class="stage" id="s2">
+  <h1>There's a letter in here for you</h1>
+  <button class="env" id="env" aria-label="Tap to open the letter">
+    <div class="front"></div><div class="flap"></div>
+    <div class="seal"><svg viewBox="0 0 24 24"><path d="M12 21C5 15 2 11.5 2 8a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 3.500-3 7-10 13Z" fill="#c8405d"/></svg></div>
+  </button>
+  <p class="tiny pulse">tap to open</p>
+</main>
+
+<main class="stage" id="s3">
+  <article class="paper">
+    <p>Hey Zahra,</p>
+    <p>I'm sorry for cancelling on you. You made time for me and I let you down, and I've felt bad about it ever since.</p>
+    <p>I want to tell you the real reason. I felt uncomfortable and I panicked. Instead of being honest with you, I just backed out, and that wasn't fair. It wasn't because I don't want to see you. I do.</p>
+    <p>The truth is I really like you, Zahra. I still do, and I can see a future with you. That's exactly why this bothers me so much. You're someone I don't want to mess things up with.</p>
+    <p>I'm not perfect, but I'd rather tell you when something feels off than hide from it again.</p>
+    <p>Take whatever time you need. I'd really like the chance to make it right.</p>
+    <p class="sig">Abdullah</p>
+  </article>
+
+  <div class="ask" id="ask">
+    <h2>So, do I get a second chance?</h2>
+    <div class="btns">
+      <button class="b main" id="yes">You're forgiven</button>
+      <button class="b" id="later">I need more time</button>
+    </div>
+  </div>
+  <div class="reply" id="reply"></div>
+</main>
+
+<script>
+(function(){
+  var NUM='27780120351';
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(id){return document.getElementById(id)}
+  function show(id){document.querySelectorAll('.stage').forEach(function(s){s.classList.remove('on')});$(id).classList.add('on');window.scrollTo(0,0)}
+  function petal(){
+    if(reduce)return;
+    var p=document.createElement('div');p.className='petal';
+    var s=10+Math.random()*14;
+    p.style.width=s+'px';p.style.height=s*1.1+'px';
+    p.style.left=Math.random()*100+'vw';
+    p.style.setProperty('--dx',(Math.random()*180-90)+'px');
+    p.style.setProperty('--r',(Math.random()*540)+'deg');
+    p.style.animationDuration=(8+Math.random()*8)+'s';
+    document.body.appendChild(p);
+    setTimeout(function(){p.remove()},17000);
+  }
+  function burst(n){for(var i=0;i<n;i++)setTimeout(petal,i*70)}
+  setInterval(petal,1300);
+
+  $('bq').onclick=function(){this.classList.add('pop');burst(30);setTimeout(function(){show('s2')},1000)};
+  $('env').onclick=function(){
+    var e=this;e.classList.add('open');
+    setTimeout(function(){e.classList.add('gone')},900);
+    setTimeout(function(){show('s3');burst(10)},1500);
+  };
+  function reply(text,msg){
+    $('ask').style.display='none';
+    var t=encodeURIComponent(msg),r=$('reply');
+    r.innerHTML='<p>'+text+'</p><a class="b main" target="_blank" rel="noopener" href="https://wa.me/'+NUM+'?text='+t+'">Message me on WhatsApp</a><span class="alt">or <a style="color:inherit" href="sms:+'+NUM+'?&body='+t+'">send it as a normal text</a></span>';
+    r.classList.add('on');
+    r.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  $('yes').onclick=function(){
+    burst(40);
+    reply('Thank you, Zahra. That means more than you know. I\u2019ll show you I meant every word. Send me a message and let\u2019s pick a day.',
+      'Hey Abdullah, I read your letter and thank you for being honest with me. I forgive you, and I would like to see you again. When are you free?');
+  };
+  $('later').onclick=function(){
+    reply('That\u2019s completely fair, and thank you for hearing me out. Take all the time you need. I\u2019ll be here whenever you\u2019re ready.',
+      'Hey Abdullah, I read your letter and I appreciate you being honest. I just need a bit more time to think, but I will message you when I am ready.');
+  };
+})();
+</script>
+</body>
+</html>
